@@ -9,23 +9,24 @@ function NewNote(): JSX.Element {
   }
 
   return (
-    <article className="note__container">
-      <h3>New Note</h3>
-      <form>
-        <label htmlFor="title">Title</label>
+    <article className="note">
+      <h3 className="note__title">New Note</h3>
+      <form className="note__form">
         <input
           name="title"
+          className="note__form__input__title note__form__input"
           type="text"
+          placeholder="Title..."
           value={newNote.title}
           onChange={updateNote}
-        ></input>
-        <input
+        />
+        <textarea
           name="entry"
-          type="text"
+          className="note__form__input__entry note__form__input"
           value={newNote.entry}
-          placeholder="whats up"
+          placeholder="whats up..."
           onChange={updateNote}
-        ></input>
+        />
       </form>
     </article>
   )
