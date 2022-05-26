@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
+import NewNote from './NewNote'
 
 function Board(): JSX.Element {
-  return <main></main>
+  const [showNewNote, setShowNewNote] = useState(false)
+
+  function handleMainClick() {
+    setShowNewNote(true)
+  }
+
+  return (
+    <section className="board" onClick={handleMainClick}>
+      {showNewNote && <NewNote />}
+    </section>
+  )
 }
 
 export default Board
