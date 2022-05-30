@@ -1,6 +1,8 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
 
 function NewNote(): JSX.Element {
+  // need a blank note to be automatically removed i.e once unselected the note disapears
+
   const [newNote, setNewNote] = useState({ title: '', entry: '' })
 
   function updateNoteTitle(event: React.ChangeEvent<HTMLInputElement>) {
@@ -22,8 +24,13 @@ function NewNote(): JSX.Element {
     form.preventDefault()
   }
 
+  // need to create function/ logic to prevent new notes being created
+  // function handleNoteClick(event: React.MouseEvent) {
+  //   return
+  // }
+
   return (
-    <article className="note">
+    <article className="note" onClick={handleNoteClick}>
       <form className="note__form" onSubmit={handleSubmit}>
         <input
           name="title"
