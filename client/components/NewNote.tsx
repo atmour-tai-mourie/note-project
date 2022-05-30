@@ -4,8 +4,18 @@ function NewNote(): JSX.Element {
   const [newNote, setNewNote] = useState({ title: '', entry: '' })
 
   // need to add proper type
-  function updateNote(event: any) {
-    setNewNote({ ...newNote, [event.target.name]: event.target.value })
+  function updateNoteTitle(event: React.ChangeEvent<HTMLInputElement>) {
+    setNewNote({
+      ...newNote,
+      title: event.target.value,
+    })
+  }
+
+  function updateNoteEntry(event: React.ChangeEvent<HTMLTextAreaElement>) {
+    setNewNote({
+      ...newNote,
+      entry: event.target.value,
+    })
   }
 
   return (
@@ -18,14 +28,14 @@ function NewNote(): JSX.Element {
           type="text"
           placeholder="Title..."
           value={newNote.title}
-          onChange={updateNote}
+          onChange={updateNoteTitle}
         />
         <textarea
           name="entry"
           className="note__form__input__entry note__form__input"
           value={newNote.entry}
           placeholder="whats up..."
-          onChange={updateNote}
+          onChange={updateNoteEntry}
         />
       </form>
     </article>
