@@ -1,9 +1,8 @@
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, FormEvent, useState } from 'react'
 
 function NewNote(): JSX.Element {
   const [newNote, setNewNote] = useState({ title: '', entry: '' })
 
-  // need to add proper type
   function updateNoteTitle(event: React.ChangeEvent<HTMLInputElement>) {
     setNewNote({
       ...newNote,
@@ -18,10 +17,14 @@ function NewNote(): JSX.Element {
     })
   }
 
+  // need to add proper type
+  function handleSubmit(form: any) {
+    form.preventDefault()
+  }
+
   return (
     <article className="note">
-      <h3 className="note__title">New Note</h3>
-      <form className="note__form">
+      <form className="note__form" onSubmit={handleSubmit}>
         <input
           name="title"
           className="note__form__input__title note__form__input"
