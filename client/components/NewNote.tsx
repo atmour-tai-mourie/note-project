@@ -19,9 +19,8 @@ function NewNote(): JSX.Element {
     })
   }
 
-  // need to add proper type
-  function handleSubmit(form: any) {
-    form.preventDefault()
+  function handleSubmit(event: React.SyntheticEvent) {
+    event.preventDefault()
   }
 
   // need to create function/ logic to prevent new notes being created
