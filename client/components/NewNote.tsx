@@ -24,9 +24,9 @@ function NewNote(): JSX.Element {
   }
 
   // need to create function/ logic to prevent new notes being created
-  // function handleNoteClick(event: React.MouseEvent) {
-  //   return
-  // }
+  function handleNoteClick(event: React.MouseEvent) {
+    event.stopPropagation()
+  }
 
   return (
     <article className="note" onClick={handleNoteClick}>
